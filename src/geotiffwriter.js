@@ -255,8 +255,9 @@ const encodeImage = (values, width, height, metadata) => {
   const img = new Uint8Array(values);
 
   const samplesPerPixel = ifd[277];
+  const bitsPerPixel = ifd[258];
 
-  const data = new Uint8Array(numBytesInIfd + (width * height * samplesPerPixel));
+  const data = new Uint8Array(numBytesInIfd + (width * height * samplesPerPixel * (bitsPerPixel / 8)));
   times(prfx.length, (i) => {
     data[i] = prfx[i];
   });
