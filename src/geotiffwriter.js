@@ -239,7 +239,7 @@ const encodeImage = (values, width, height, metadata) => {
     257: [height], // ImageLength
     273: [numBytesInIfd], // strips offset
     278: [height], // RowsPerStrip
-    305: 'geotiff.js', // no array for ASCII(Z)
+    305: 'geotiff.js ShadeMap', // no array for ASCII(Z)
   };
 
   if (metadata) {
