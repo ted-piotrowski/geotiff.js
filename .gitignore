@@ -1,8 +1,8 @@
 node_modules
 .cache
 dist
-dist-node
+#dist-node
 dist-browser
-dist-module
+#dist-module
 docs
 .DS_Store
