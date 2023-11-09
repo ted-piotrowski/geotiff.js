@@ -7,7 +7,7 @@
  *                               to be aborted
  * @returns {Promise<GeoTIFF>} The resulting GeoTIFF file.
  */
-export function fromUrl(url: string, options?: object, signal?: any): Promise<GeoTIFF>;
+export function fromUrl(url: string, options?: object, signal?: AbortSignal | undefined): Promise<GeoTIFF>;
 /**
  * Creates a new GeoTIFF from a custom {@link BaseClient}.
  * @param {BaseClient} client The client.
@@ -17,7 +17,7 @@ export function fromUrl(url: string, options?: object, signal?: any): Promise<Ge
  *                               to be aborted
  * @returns {Promise<GeoTIFF>} The resulting GeoTIFF file.
  */
-export function fromCustomClient(client: BaseClient, options?: object, signal?: any): Promise<GeoTIFF>;
+export function fromCustomClient(client: BaseClient, options?: object, signal?: AbortSignal | undefined): Promise<GeoTIFF>;
 /**
  * Construct a new GeoTIFF from an
  * [ArrayBuffer]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer}.
@@ -26,7 +26,7 @@ export function fromCustomClient(client: BaseClient, options?: object, signal?: 
  *                               to be aborted
  * @returns {Promise<GeoTIFF>} The resulting GeoTIFF file.
  */
-export function fromArrayBuffer(arrayBuffer: ArrayBuffer, signal?: any): Promise<GeoTIFF>;
+export function fromArrayBuffer(arrayBuffer: ArrayBuffer, signal?: AbortSignal | undefined): Promise<GeoTIFF>;
 /**
  * Construct a GeoTIFF from a local file path. This uses the node
  * [filesystem API]{@link https://nodejs.org/api/fs.html} and is
@@ -39,7 +39,7 @@ export function fromArrayBuffer(arrayBuffer: ArrayBuffer, signal?: any): Promise
  *                               to be aborted
  * @returns {Promise<GeoTIFF>} The resulting GeoTIFF file.
  */
-export function fromFile(path: string, signal?: any): Promise<GeoTIFF>;
+export function fromFile(path: string, signal?: AbortSignal | undefined): Promise<GeoTIFF>;
 /**
  * Construct a GeoTIFF from an HTML
  * [Blob]{@link https://developer.mozilla.org/en-US/docs/Web/API/Blob} or
@@ -50,7 +50,7 @@ export function fromFile(path: string, signal?: any): Promise<GeoTIFF>;
  *                               to be aborted
  * @returns {Promise<GeoTIFF>} The resulting GeoTIFF file.
  */
-export function fromBlob(blob: Blob | File, signal?: any): Promise<GeoTIFF>;
+export function fromBlob(blob: Blob | File, signal?: AbortSignal | undefined): Promise<GeoTIFF>;
 /**
  * Construct a MultiGeoTIFF from the given URLs.
  * @param {string} mainUrl The URL for the main file.
@@ -62,7 +62,7 @@ export function fromBlob(blob: Blob | File, signal?: any): Promise<GeoTIFF>;
  *                               to be aborted
  * @returns {Promise<MultiGeoTIFF>} The resulting MultiGeoTIFF file.
  */
-export function fromUrls(mainUrl: string, overviewUrls?: string[], options?: any, signal?: any): Promise<MultiGeoTIFF>;
+export function fromUrls(mainUrl: string, overviewUrls?: string[], options?: any, signal?: AbortSignal | undefined): Promise<MultiGeoTIFF>;
 /**
  * Main creating function for GeoTIFF files.
  * @param {(Array)} array of pixel values
@@ -117,7 +117,7 @@ export class GeoTIFF extends GeoTIFFBase {
      * @param {AbortSignal} [signal] An AbortSignal that may be signalled if the request is
      *                               to be aborted
      */
-    static fromSource(source: any, options?: GeoTIFFOptions | undefined, signal?: any): Promise<GeoTIFF>;
+    static fromSource(source: any, options?: GeoTIFFOptions | undefined, signal?: AbortSignal | undefined): Promise<GeoTIFF>;
     /**
      * @constructor
      * @param {*} source The datasource to read from.

@@ -6,3 +6,8 @@ dist-browser
 #dist-module
 docs
 .DS_Store
+
+.yarn
+.pnp.cjs
+.pnp.loader.mjs
+

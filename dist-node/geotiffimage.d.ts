@@ -41,7 +41,7 @@ export type ReadRasterOptions = {
      * An AbortSignal that may be signalled if the request is
      *       to be aborted
      */
-    signal?: any;
+    signal?: AbortSignal | undefined;
     /**
      * The value to use for parts of the image
      *       outside of the images extent. When multiple
@@ -132,7 +132,7 @@ declare class GeoTIFFImage {
      *                               to be aborted
      * @returns {Promise.<ArrayBuffer>}
      */
-    getTileOrStrip(x: number, y: number, sample: number, poolOrDecoder: import("./geotiff").Pool | import("./geotiff").BaseDecoder, signal?: any): Promise<ArrayBuffer>;
+    getTileOrStrip(x: number, y: number, sample: number, poolOrDecoder: import("./geotiff").Pool | import("./geotiff").BaseDecoder, signal?: AbortSignal | undefined): Promise<ArrayBuffer>;
     /**
      * Internal read function.
      * @private
@@ -191,7 +191,7 @@ declare class GeoTIFFImage {
         height?: number | undefined;
         resampleMethod?: string | undefined;
         enableAlpha?: boolean | undefined;
-        signal?: any;
+        signal?: AbortSignal | undefined;
     } | undefined): Promise<ReadRasterResult>;
     /**
      * Returns an array of tiepoints.

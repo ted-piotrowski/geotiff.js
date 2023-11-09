@@ -130,8 +130,10 @@ export const fieldTagTypes: {
     1025: string;
     2048: string;
     2049: string;
+    2054: string;
     3072: string;
     3073: string;
+    3076: string;
     33550: string;
     33922: string;
     34264: string;
